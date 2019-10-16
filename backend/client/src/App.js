@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {BootstrapTable, 
+  TableHeaderColumn} from 'react-bootstrap-table';
 import logo from './logo.svg';
 import './App.css';
 
@@ -50,7 +52,22 @@ class App extends Component {
     const {customers} = this.state;
     return (
       <div className="App">
-        {customers.map(this.showCustomers)}
+        {/* {customers.map(this.showCustomers)} */}
+        <p className="Table-header">Customers List</p>
+        <BootstrapTable data={this.state.customers}>
+          <TableHeaderColumn isKey dataField='customer_id'>
+            ID
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField='first_name'>
+            First Name
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField='last_name'>
+            Last Name
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField='email'>
+            Email
+          </TableHeaderColumn>
+        </BootstrapTable>
       </div>
     );
   }
